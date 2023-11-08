@@ -1,0 +1,11 @@
+setupTasks:
+  - task: git-clone
+    inputs:
+      repositoryUrl: 'https://github.com/jmatthiesen/personal-config'
+      directory: 'c:\src'
+
+  - task: powershell
+    inputs:
+      runAsUser: true #need a way to run PS scripts as a user
+      workingDirectory: 'c:\src\personal-config'
+      command: '[System.Environment]::SetEnvironmentVariable('VS_UNIFIED_SETTINGS_PROFILE','c:\src\dotfiles-ignite\visualstudio\settings\devbox', 'User')'
