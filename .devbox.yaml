@@ -4,8 +4,12 @@ setupTasks:
       repositoryUrl: 'https://github.com/jmatthiesen/personal-config'
       directory: 'c:\src'
 
+  - task: winget
+    inputs:
+      package: 'Microsoft.PowerToys'
+
+  # Assuming Visual Studio is already installed, set personal preferences
   - task: powershell
     inputs:
-      runAsUser: true #need a way to run PS scripts as a user
-      workingDirectory: 'c:\src\personal-config'
-      command: "Set-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes -Name InstallTheme -Value C:\Windows\resources\Themes\dark.theme -Force"
+      runAsUser: true
+      command: '[System.Environment]::SetEnvironmentVariable("VS_UNIFIED_SETTINGS_PROFILE","c:\src\personal-config\visualstudio-settings.json", "User")'
