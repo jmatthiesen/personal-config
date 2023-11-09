@@ -8,8 +8,6 @@ setupTasks:
     inputs:
       package: 'Microsoft.PowerToys'
 
-  # Assuming Visual Studio is already installed, set personal preferences
   - task: powershell
     inputs:
-      runAsUser: true
-      command: '[System.Environment]::SetEnvironmentVariable("VS_UNIFIED_SETTINGS_PROFILE","c:\src\personal-config\visualstudio-settings.json", "User")'
+      command: 'powershell -File c:\src\personal-config\setupenv.ps1'
