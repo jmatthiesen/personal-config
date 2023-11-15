@@ -6,8 +6,10 @@ setupTasks:
 
   - task: winget
     inputs:
+      runAsUser: true
       package: 'Microsoft.PowerToys'
 
   - task: powershell
     inputs:
+      runAsUser: true
       command: 'powershell -File c:\src\personal-config\setupenv.ps1'
