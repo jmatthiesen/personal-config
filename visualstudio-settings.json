@@ -1,7 +1,0 @@
-/* Visual Studio Settings File */
-{
-    "textEditor.general.display.bracePairColorization": true,
-        "previewFeatures.shellExperimentalStyles": true,
-    "environment.tabs.documentTabs.multiRowTabs": true,
-    "environment.visualExperience.colorTheme": "cool-slate"
-  }
