@@ -50,5 +50,17 @@ properties:
           return $false
         SetScript: |
           [System.Environment]::SetEnvironmentVariable("VS_UNIFIED_SETTINGS_PROFILE","${WinGetConfigRoot}\..\visual-studio-settings\", "User")
+    - resource: PSDscResources/Script
+      id: myGitConfig
+      directives:
+        description: Git configuration
+        allowPrerelease: true
+      settings:
+        GetScript: |
+          # Your custom PowerShell code to check app configuration
+        TestScript: |
+          return $false
+        SetScript: |
+          copy "${WinGetConfigRoot}\..\.gitconfig" "~\.gitconfig" -Force
 
   configurationVersion: 0.2.0
