@@ -7,6 +7,8 @@ properties:
         allowPrerelease: true
       settings:
         MinVersion: '10.0.22000'
+        
+  # Configure Windows OS settings
   resources:
     - resource: Microsoft.Windows.Developer/DeveloperMode
       directives:
@@ -26,18 +28,30 @@ properties:
         allowPrerelease: true
       settings:
         Ensure: Absent
+    
+    # Install apps
     - resource: Microsoft.WinGet.DSC/WinGetPackage
       directives:
         description: Install PowerToys
         allowPrerelease: true
       settings:
         id: Microsoft.PowerToys
+        source: winget
     - resource: Microsoft.WinGet.DSC/WinGetPackage
       directives:
         description: Install Balsamiq Mockups
         allowPrerelease: true
       settings:
         id: Balsamiq.Wireframes
+        source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install OhMyPosh
+      settings:
+        id: JanDeDobbeleer.OhMyPosh
+        source: winget
+    
+    # Setup Personal app preferences
     - resource: PSDscResources/Script
       id: myVSSettings
       directives:
