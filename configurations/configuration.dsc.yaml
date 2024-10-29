@@ -76,7 +76,7 @@ properties:
         TestScript: |
           return $false
         SetScript: |
-          pwsh "${WinGetConfigRoot}\setupenv.ps1"
+          pwsh "${WinGetConfigRoot}\..\setupenv.ps1"
   # - resource: PSDscResources/Script
   #     id: myVSSettings
   #     directives:
